@@ -1,0 +1,9 @@
+ansible ServerGrouop1 -m setup    -получает всю инфу о серверах группы ServerGroup (группу мы создали в файле, а файл прописали в конфиге ансибла /etc/ansible/ansible.cfg)
+ansible all -m shell -a  "rm -rf /"  - почистит все на всех серверах
+ansible all -m copy -a "src=/home/1.txt dest =/home mod777" -b      (-b означает быть sudo)
+ansible all -m file -a "path=/home/1.txt state=absent" -b  удаление
+ansible all -m get-url -a "url=https://st-dvorik.ru/wp-content/1.png  dest =/home"  скачать с интернета по урлу
+ansible all -m yum -a "name=stress state=latest" -b      установка пакета stress 
+ansible all -m yum -a "name=stress state=removed" -b      удаление пакета stress
+ansible all -m uri -a "url=https://st-dvorik.ru" return-content=yes"   получает html-код сайта
+

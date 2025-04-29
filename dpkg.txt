@@ -1,0 +1,3 @@
+dpkg --list              ПОКАЗЫВАЕТ СПИСОК ДОСТУПНЫХ ПАКЕТОВ
+dpkg --status apt        РАЗВЕРНУТАЯ ИНФА О ПАКЕТЕ
+dpkg --listfiles apt
