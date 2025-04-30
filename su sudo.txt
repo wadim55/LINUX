@@ -1,0 +1,10 @@
+su -l igor                    - смена пользователя
+вводим пароль
+
+logout - выход
+
+можно наделить пользователя правами SUDO для этого редактируем файл /etc/sudoers.d  --->>> этот файл открывается командой   wisudo
+
+В раздел #User privilege specification     добавляем пользователя igor ALL=(ALL:ALL) ALL       он станет root если будет писать sudo
+
+В разделе #Allow members of group sudo to execute any command  добавляем mike DB=(ALL:ALL)  ALL   он станет root на хосте DB

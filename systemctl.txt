@@ -1,0 +1,13 @@
+systemctl status sshd   - показывает состояние процесса
+
+systemctl star sshd - включает процесс если он enable
+
+systemctl stop sshd выключает
+
+systemctl disable отключает, делает недоступным и уводит из автозагрузки
+
+systemctl enable sshd.service  - делает процесс доступным и кидает его в автозагрузку
+
+systemctl list-units     - показывает все активные загруженые службы
+
+systemctl list-uniys --all   - показывает все службы

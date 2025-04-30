@@ -1,0 +1,16 @@
+apt install isc-dhcp-server
+
+настраиваем конфигурацию в файле /etc/default/isc-dhcp-server
+
+раскоментитить строчку 3
+DHCPDv4_CONF ..............................
+
+раскоментируем строчку 5
+DHCPDv4_PID
+
+И вставляем сетевое имя взятое по IP-a
+INTERFACESv4="wlp1s0"
+
+-------------------------------------------------------------------------------------------------
+
+редактируем /etc/dhcp/dhcpd.conf как показано тут  https://www.youtube.com/watch?v=xBhlAw4vSLY&list=PLYl91BhaOf-kkXWweBzgOw555he6S7SUs&index=18
