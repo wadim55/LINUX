@@ -1,0 +1,4 @@
+mount /dev/sdb4 /mnt/usb                - монтировать
+df                                      - посмотреть все примонтированное
+umount /dev/sdb4                        - размонтировать
+mkfs.vfat /dev/sdb4                     - форматировать
