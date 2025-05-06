@@ -1,0 +1,69 @@
+sudo apt install postgresql postgresql-contrib     - установка
+
+sudo systemctl start postgresql.service            - старт 
+
+sudo systemctl status postgresql.service           - проверка статуса
+
+sudo systemctl enable postgresql.service           - добавлеям в автозагрузки
+
+su - postgres                                      - заходим под пользователем postgres
+
+createdb newDB                                     - создаем базу данных от лицы пользователя postgres
+
+psql                                               - заходим в командную оболочку PostgresQL
+
+select * from pg_user;                             - посмотреть всех пользователей
+
+
+CREATE USER Vasya WITH PASSWORD '1111';            - создаем нового пользователя
+
+createuser -P Vasya                                - даем ему новую роль
+
+GRANT ALL PRIVILEGES ON DATABASE "newDB" to Vasya; - даем Васе все права для работы с базой newDB
+
+\c newDB                                           - подключаемся к базе
+
+GRANT pg_read_all_data TO Vasya;                   - разрешить Васе всё читать
+
+GRANT pg_write_all_data TO Vasya;                  - разрешить Васе всё писать
+
+
+\q                                                 -выходим
+
+psql -U Vasya -d mydb -h 127.0.0.1                 - подключаемся к базе от имени Vasya
+
+
+--------------------------------------------------------------------------------------------
+
+CREATE TABLE cats (name varchar(25), price int);   - создаем таблицу cats с двумя столбиками первый столбик текст, второй цифры)
+
+ALTER TABLE cats ADD COLUMN age float;             - добавляем столбец age
+
+\d cats                                            - посмотреть скелет таблицы
+
+ALTER TABLE cats RENAME COLUMN name TO CatName;    - переименовать столбец
+
+ALTER TABLE cats RENAME TO dogs;                   - переименовать всю таблицу
+
+DROP TABLE cities;                                 - удалить таблицу
+
+---------------------------------------------------------------------------------------------
+
+INSERT INTO Cats (name, price, age)              - внесение данных в таблицу
+VALUES ('kot', 110, 9.5);
+
+SELECT * FROM cats;                               - посмотреть таблицу
+
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
