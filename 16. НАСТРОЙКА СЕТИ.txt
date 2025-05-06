@@ -1,0 +1,23 @@
+ip a                                            определяет IP устройства, шлюз, маску...
+ip addr add 192.168.0.25/24 dev wlp1s0          задает статический адрес внутри подсети только на время сессии
+
+чтобы пофиксить статический IP навсегда надо внести изменения в файл /etc/network/interfaces
+
+#The primary network interfaces
+allow-hotplug wlp1s0
+iface wlp1s0 inet static
+address 192.168.0.25
+netmask 255.255.255.0
+
+hostname pizduk                                  задать имя хоста (компа) на время сессии
+
+чтобы пофиксить имя хоста навсегда идем в файл /etc/hosts
+
+192.168.0.25 pizduk
+
+можно это все сделать через службу DNS
+
+
+
+
+

@@ -1,0 +1,27 @@
+RSYNC бекап, восстановление и перенос системы UBUNTU
+В нескольких словах как просто и быстро перенести систему на другой сервер с помощью RSYNC:
+1. Подключаем новый диск, флешку либо монтируем NFS. Например в папку /mnt/disk2
+    mount /dev/sdb1 /mnt/ (Здесь /dev/sdb1 - флешка. Для NFS просто копируем в подключенную папку)
+2. Запускаем копирование с сохранением прав
+    rsync -aAXv --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*"} / /mnt/
+3. Отмнотируем папку
+    umount /dev/sdb1
+4. Загружаем с загрузочного диска и монтируем устройств. Для простоты пусть это будет опять /dev/sdb1
+    mount /dev/sdb1 /mnt
+5. Правим таблицу с разделами /etc/fstab
+    vi /mnt/etc/fstab там меняем точки монтирования  на /dev/sdb1
+6. Монтируем устройства
+mount --bind /sys /mnt/sys
+mount --bind /proc /mnt/proc
+mount --bind /dev /mnt/dev
+7. Меняем корневой каталог
+chroot /mnt/
+8. Инсталлируем загрузчик и меняем файл /boot/grub/grub.cfg
+ grub-install /dev/sdb
+update-grub2
+9. Выходим и отмонтируем устройства. Перезагружаемся
+exit
+umount  /mnt/sys
+umount  /mnt/proc
+umount  /mnt/dev
+  reboot
